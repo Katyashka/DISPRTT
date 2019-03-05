@@ -18,19 +18,6 @@ namespace DISPRTT
 
         private void ConnectToServer(object sender, EventArgs e)
         {
-            //string myServer = Environment.MachineName;
-            //SqlDataSourceEnumerator ser = SqlDataSourceEnumerator.Instance;
-            //DataTable servers = ser.GetDataSources();
-            //for (int i = 0; i < servers.Rows.Count; i++)
-            //{
-            //    if (myServer == servers.Rows[i]["ServerName"].ToString()) ///// used to get the servers in the local machine////
-            //    {
-            //        if ((servers.Rows[i]["InstanceName"] as string) != null)
-            //            chooseS.Items.Add(servers.Rows[i]["ServerName"] + "\\" + servers.Rows[i]["InstanceName"]);
-            //        else
-            //            chooseS.Items.Add(servers.Rows[i]["ServerName"]);
-            //    }
-            //}
             if (String.IsNullOrEmpty(serverName.Text))
             {
                 MessageBox.Show("Необходимо ввести имя сервера");
@@ -42,7 +29,6 @@ namespace DISPRTT
                 string connection = @"Data Source=" + Requests.R_DBName + ";Integrated Security=True";
                 sqlConnection = new SqlConnection(connection);
                 sqlConnection.Open();
-                MessageBox.Show("Соединение установлено");
 
                 label1.Visible = true;
                 dbName.Visible = true;

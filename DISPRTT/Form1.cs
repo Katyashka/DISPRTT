@@ -8,7 +8,7 @@ namespace DISPRTT
 {
     public partial class Form1 : Form
     {
-        Directory directory ;
+        SupportingTools directory ;
         ConnectToDB connectTo;
 
         public Form1()
@@ -26,7 +26,7 @@ namespace DISPRTT
             if (directory != null && !directory.IsDisposed)
                 return;
 
-            directory = new Directory
+            directory = new SupportingTools
             {
                 MdiParent = this
             };
