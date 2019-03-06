@@ -8,28 +8,25 @@ namespace DISPRTT
     public partial class SupportingTools : Form
     {
         SqlDataAdapter dataAdapter;
-        SqlCommandBuilder commandBuilder;
         DataSet ds;
         public SupportingTools()
         {
             InitializeComponent();
             dataGridView1.AutoGenerateColumns = true;
         }
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (listBox1.SelectedIndex)
+            switch (listView1.SelectedIndices.)
             {
-                case 0: GetNastroyky();break;
-                case 1: break;
-                case 2: break;
+                case 0: GetNastroyky(); break;
+                case 1: GetVidTestirovaniya(); break;
+                case 2: GetVidChasti(); break;
             }
         }
         private void GetNastroyky()
         {
             try
             {
-                var sqlCmd = new SqlCommand("GetNastroyky", Requests.R_sqlConnection);
-                sqlCmd.CommandType = CommandType.StoredProcedure;
                 dataAdapter = new SqlDataAdapter("GetNastroyky", Requests.R_sqlConnection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 ds = new DataSet();
@@ -40,6 +37,36 @@ namespace DISPRTT
             {
                 MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
             }
-} 
+        }
+        private void GetVidTestirovaniya()
+        {
+            try
+            {
+                dataAdapter = new SqlDataAdapter("GetVidTestirovaniya", Requests.R_sqlConnection);
+                dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                ds = new DataSet();
+                dataAdapter.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
+            }
+        }
+        private void GetVidChasti()
+        {
+            try
+            {
+                dataAdapter = new SqlDataAdapter("GetVidChasti", Requests.R_sqlConnection);
+                dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                ds = new DataSet();
+                dataAdapter.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
+            }
+        }
     }
 }
