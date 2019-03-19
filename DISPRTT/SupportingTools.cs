@@ -7,16 +7,16 @@ namespace DISPRTT
 {
     public partial class SupportingTools : Form
     {
-        SqlDataAdapter dataAdapter;
-        DataSet ds;
+        public SqlDataAdapter dataAdapter;
+        public DataSet ds;
         public SupportingTools()
         {
             InitializeComponent();
             dataGridView1.AutoGenerateColumns = true;
         }
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (listView1.SelectedIndices.)
+            switch (listBox1.SelectedIndex)
             {
                 case 0: GetNastroyky(); break;
                 case 1: GetVidTestirovaniya(); break;
@@ -67,6 +67,19 @@ namespace DISPRTT
             {
                 MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
             }
+        }
+
+        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Не выбран справочник");
+                return;
+            }
+            ItemSupportingTools add = new ItemSupportingTools(this);
+            add.Text = listBox1.SelectedItem.ToString();
+            add.ShowDialog();
+            GetNastroyky();
         }
     }
 }

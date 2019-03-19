@@ -53,7 +53,7 @@
             this.Ok.Location = new System.Drawing.Point(367, 204);
             this.Ok.Name = "Ok";
             this.Ok.Size = new System.Drawing.Size(81, 36);
-            this.Ok.TabIndex = 2;
+            this.Ok.TabIndex = 1;
             this.Ok.Text = "OK";
             this.Ok.UseVisualStyleBackColor = true;
             this.Ok.Click += new System.EventHandler(this.Ok_Click);
@@ -75,7 +75,7 @@
             this.connect.Location = new System.Drawing.Point(426, 90);
             this.connect.Name = "connect";
             this.connect.Size = new System.Drawing.Size(118, 34);
-            this.connect.TabIndex = 5;
+            this.connect.TabIndex = 0;
             this.connect.Text = "Соединить";
             this.connect.UseVisualStyleBackColor = true;
             this.connect.Click += new System.EventHandler(this.ConnectToServer);
