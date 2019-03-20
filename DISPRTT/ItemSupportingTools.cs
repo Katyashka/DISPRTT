@@ -87,6 +87,7 @@ namespace DISPRTT
                         form.dataAdapter.InsertCommand.Parameters.Add(nameParam);
                         form.dataAdapter.InsertCommand.ExecuteNonQuery();
                     }
+                    //comment
                     catch (SqlException)
                     {
                         MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
