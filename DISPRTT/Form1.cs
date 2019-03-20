@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Data;
 
 namespace DISPRTT
-{
+{ //bnm,./
     public partial class Form1 : Form
     {
         SupportingTools directory ;
