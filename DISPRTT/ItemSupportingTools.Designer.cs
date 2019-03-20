@@ -54,7 +54,6 @@
             this.panel0.Location = new System.Drawing.Point(0, 0);
             this.panel0.Name = "panel0";
             this.panel0.Size = new System.Drawing.Size(548, 274);
-            this.panel0.TabIndex = 0;
             this.panel0.Visible = false;
             // 
             // textBox2
@@ -66,7 +65,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox2.Size = new System.Drawing.Size(392, 131);
-            this.textBox2.TabIndex = 3;
             // 
             // textBox1
             // 
@@ -83,7 +81,6 @@
             this.label2.Location = new System.Drawing.Point(13, 130);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 20);
-            this.label2.TabIndex = 1;
             this.label2.Text = "Комментарий";
             // 
             // label1
@@ -92,7 +89,6 @@
             this.label1.Location = new System.Drawing.Point(13, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 20);
-            this.label1.TabIndex = 0;
             this.label1.Text = "Путь";
             // 
             // panel1
@@ -105,7 +101,6 @@
             this.panel1.Location = new System.Drawing.Point(0, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(548, 271);
-            this.panel1.TabIndex = 6;
             this.panel1.Visible = false;
             // 
             // textBox3
@@ -115,7 +110,6 @@
             this.textBox3.Location = new System.Drawing.Point(144, 79);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(392, 26);
-            this.textBox3.TabIndex = 4;
             // 
             // label3
             // 
@@ -123,7 +117,6 @@
             this.label3.Location = new System.Drawing.Point(13, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 20);
-            this.label3.TabIndex = 3;
             this.label3.Text = "Название ";
             // 
             // Cancel
@@ -133,7 +126,7 @@
             this.Cancel.Location = new System.Drawing.Point(431, 280);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(105, 35);
-            this.Cancel.TabIndex = 7;
+            this.Cancel.TabIndex = 1;
             this.Cancel.Text = "Отмена";
             this.Cancel.UseVisualStyleBackColor = true;
             // 
@@ -144,7 +137,7 @@
             this.add.Location = new System.Drawing.Point(305, 282);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(105, 35);
-            this.add.TabIndex = 6;
+            this.add.TabIndex = 0;
             this.add.Text = "Добавить";
             this.add.UseVisualStyleBackColor = true;
             this.add.Click += new System.EventHandler(this.add_Click);
