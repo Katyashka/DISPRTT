@@ -6,7 +6,6 @@ namespace DISPRTT
 {
     public partial class ItemSupportingTools : Form
     {
-        SqlDataAdapter dataAdapter;
         int i = 0;
         SupportingTools form;
         public ItemSupportingTools(SupportingTools supportingTools)
@@ -58,6 +57,26 @@ namespace DISPRTT
                     {
                         //Добавление новой позиции в таблицу вид тестирования
                         form.dataAdapter.InsertCommand = new SqlCommand("AddVidTestirovaniya");
+                        form.dataAdapter.InsertCommand.Connection = form.dataAdapter.SelectCommand.Connection;
+                        form.dataAdapter.InsertCommand.CommandType = CommandType.StoredProcedure;
+                        SqlParameter nameParam = new SqlParameter
+                        {
+                            ParameterName = "@nazvanie",
+                            Value = textBox3.Text
+                        };
+                        form.dataAdapter.InsertCommand.Parameters.Add(nameParam);
+                        form.dataAdapter.InsertCommand.ExecuteNonQuery();
+                    }
+                    catch (SqlException)
+                    {
+                        MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
+                    }
+                    break;
+                case 2:
+                    try
+                    {
+                        //Добавление новой позиции в таблицу вид тестирования
+                        form.dataAdapter.InsertCommand = new SqlCommand("AddVidChasti");
                         form.dataAdapter.InsertCommand.Connection = form.dataAdapter.SelectCommand.Connection;
                         form.dataAdapter.InsertCommand.CommandType = CommandType.StoredProcedure;
                         SqlParameter nameParam = new SqlParameter

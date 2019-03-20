@@ -42,7 +42,12 @@ namespace DISPRTT
 
         private void ShowSubjects(object sender, EventArgs e)
         {
+        }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Requests.R_sqlConnection != null)
+                Requests.R_sqlConnection.Close();                
         }
     }
 }

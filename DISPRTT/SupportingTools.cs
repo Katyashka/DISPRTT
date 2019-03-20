@@ -13,6 +13,7 @@ namespace DISPRTT
         {
             InitializeComponent();
             dataGridView1.AutoGenerateColumns = true;
+            listBox1.SelectedIndex = 0;
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -79,7 +80,23 @@ namespace DISPRTT
             ItemSupportingTools add = new ItemSupportingTools(this);
             add.Text = listBox1.SelectedItem.ToString();
             add.ShowDialog();
-            GetNastroyky();
+            switch (listBox1.SelectedIndex)
+            {
+                case 0:
+                    GetNastroyky();
+                    break;
+                case 1:
+                    GetVidTestirovaniya();
+                    break;
+                case 2:
+                    GetVidChasti();
+                    break;
+            }
+        }
+
+        private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
