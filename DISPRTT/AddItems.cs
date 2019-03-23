@@ -4,11 +4,12 @@ using System.Windows.Forms;
 
 namespace DISPRTT
 {
-    public partial class ItemSupportingTools : Form
+    public partial class AddItems : Form
     {
         int i = 0;
+        int butIndex = 0;
         SupportingTools form;
-        public ItemSupportingTools(SupportingTools supportingTools)
+        public AddItems(SupportingTools supportingTools)
         {
             InitializeComponent();
             form = supportingTools;
@@ -19,6 +20,14 @@ namespace DISPRTT
                 case 1:panel1.Visible = true; break;
                 case 2:panel1.Visible = true;break;
             }
+            switch (butIndex)
+            {
+                case 0:
+                    label4.Visible = textBox4.Visible = false;
+                    label5.Visible = textBox5.Visible = false;
+                    break;
+            }
+
         }
 
         private void add_Click(object sender, System.EventArgs e)
@@ -87,7 +96,6 @@ namespace DISPRTT
                         form.dataAdapter.InsertCommand.Parameters.Add(nameParam);
                         form.dataAdapter.InsertCommand.ExecuteNonQuery();
                     }
-                    //comment
                     catch (SqlException)
                     {
                         MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
