@@ -30,7 +30,7 @@ namespace DISPRTT
             {
                 MdiParent = this
             };
-
+            //dd
             directory.Show();
         }
 
