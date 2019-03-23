@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Data;
 
 namespace DISPRTT
-{ //bnm,./
+{
     public partial class Form1 : Form
     {
         SupportingTools directory ;
@@ -48,6 +48,17 @@ namespace DISPRTT
         {
             if (Requests.R_sqlConnection != null)
                 Requests.R_sqlConnection.Close();                
+        }
+
+        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Requests.R_sqlConnection == null)
+            {
+                MessageBox.Show("Вы не подключены к серверу");
+                return;
+            }
+            if (directory != null && !directory.IsDisposed)
+                return;
         }
     }
 }

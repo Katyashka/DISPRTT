@@ -98,5 +98,10 @@ namespace DISPRTT
         {
 
         }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
