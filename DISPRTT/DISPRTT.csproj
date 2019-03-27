@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeItems.Designer.cs">
+      <DependentUpon>ChangeItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConnectToDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,12 +85,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests.cs" />
-    <Compile Include="TipeofTesting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TipeofTesting.Designer.cs">
-      <DependentUpon>TipeofTesting.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="ChangeItems.resx">
+      <DependentUpon>ChangeItems.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConnectToDB.resx">
       <DependentUpon>ConnectToDB.cs</DependentUpon>
     </EmbeddedResource>

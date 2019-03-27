@@ -24,70 +24,51 @@ namespace DISPRTT
 
         private void delete_Click(object sender, System.EventArgs e)
         {
-            switch (i)
+                var con = form.dataAdapter.SelectCommand.Connection;
+            try
             {
-                case 0:
-                    try
-                    {
+                switch (i)
+                {
+                    case 0:
                         //Удаление позиции из бд настройки
+                        form.dataAdapter.SelectCommand = new SqlCommand("SELECT Pk_N FROM Nastroyky WHERE Pk_N = " + textBox1.Text);
                         form.dataAdapter.DeleteCommand = new SqlCommand("DeleteNastroyky");
-                        form.dataAdapter.DeleteCommand.Connection = form.dataAdapter.SelectCommand.Connection;
-                        form.dataAdapter.DeleteCommand.CommandType = CommandType.StoredProcedure;
-                        SqlParameter idParam = new SqlParameter
-                        {
-                            ParameterName = "@id",
-                            Value = textBox1.Text
-                        };
-                        form.dataAdapter.InsertCommand.Parameters.Add(idParam);
-                        var x = form.dataAdapter.InsertCommand.Connection;
-                        var y = form.dataAdapter.InsertCommand.ExecuteScalar();
-                    }
-                    catch (SqlException)
-                    {
-                        MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
-                    }
-                    break;
-            //    case 1:
-            //        try
-            //        {
-            //            //Добавление новой позиции в таблицу вид тестирования
-            //            form.dataAdapter.InsertCommand = new SqlCommand("AddVidTestirovaniya");
-            //            form.dataAdapter.InsertCommand.Connection = form.dataAdapter.SelectCommand.Connection;
-            //            form.dataAdapter.InsertCommand.CommandType = CommandType.StoredProcedure;
-            //            SqlParameter nameParam = new SqlParameter
-            //            {
-            //                ParameterName = "@nazvanie",
-            //                Value = textBox3.Text
-            //            };
-            //            form.dataAdapter.InsertCommand.Parameters.Add(nameParam);
-            //            form.dataAdapter.InsertCommand.ExecuteNonQuery();
-            //        }
-            //        catch (SqlException)
-            //        {
-            //            MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
-            //        }
-            //        break;
-            //    case 2:
-            //        try
-            //        {
-            //            //Добавление новой позиции в таблицу вид тестирования
-            //            form.dataAdapter.InsertCommand = new SqlCommand("AddVidChasti");
-            //            form.dataAdapter.InsertCommand.Connection = form.dataAdapter.SelectCommand.Connection;
-            //            form.dataAdapter.InsertCommand.CommandType = CommandType.StoredProcedure;
-            //            SqlParameter nameParam = new SqlParameter
-            //            {
-            //                ParameterName = "@nazvanie",
-            //                Value = textBox3.Text
-            //            };
-            //            form.dataAdapter.InsertCommand.Parameters.Add(nameParam);
-            //            form.dataAdapter.InsertCommand.ExecuteNonQuery();
-            //        }
-            //        catch (SqlException)
-            //        {
-            //            MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
-            //        }
-            //        break;
-            //}
+                        break;
+                    case 1:
+                        //Удаление позиции из бд вид тестирования
+                        form.dataAdapter.SelectCommand = new SqlCommand("SELECT Pk_VT FROM VidTestirovaniya WHERE Pk_VT = " + textBox1.Text);
+                        form.dataAdapter.DeleteCommand = new SqlCommand("DeleteVidTestirovaniya");
+                        break;
+                    case 2:
+                        //Удаление позиции из бд вид тестирования
+                        form.dataAdapter.SelectCommand = new SqlCommand("SELECT Pk_VCh FROM VidChastiTesta WHERE Pk_VCh = " + textBox1.Text);
+                        form.dataAdapter.DeleteCommand = new SqlCommand("DeleteVidChasti");
+                        break;
+                }
+                //Проверка на существование записи с введенным id
+                form.dataAdapter.SelectCommand.Connection = con;
+                var x = form.dataAdapter.SelectCommand.ExecuteScalar().ToString();
+                //Удаление позиции из бд определенной выше 
+                form.dataAdapter.DeleteCommand.Connection = form.dataAdapter.SelectCommand.Connection;
+                form.dataAdapter.DeleteCommand.CommandType = CommandType.StoredProcedure;
+                SqlParameter idParam = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    Value = textBox1.Text
+                };
+                form.dataAdapter.DeleteCommand.Parameters.Add(idParam);
+                var y = form.dataAdapter.DeleteCommand.ExecuteScalar();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Запись с таким Id не существует");
+            }
+
+
         }
     }
 }

@@ -22,4 +22,6 @@ C:\Users\Kate\Documents\Курсовой проект\DISPRTT\DISPRTT\bin\Debug\
 C:\Users\Kate\Documents\Курсовой проект\DISPRTT\DISPRTT\obj\Debug\DISPRTT.Properties.Resources.resources
 C:\Users\Kate\Documents\Курсовой проект\DISPRTT\DISPRTT\obj\Debug\DISPRTT.exe
 C:\Users\Kate\Documents\Курсовой проект\DISPRTT\DISPRTT\obj\Debug\DISPRTT.pdb
-C:\Users\Kate\Documents\Курсовой проект\DISPRTT\DISPRTT\obj\Debug\DISPRTT.ItemSupportingTools.resources
+C:\Users\Kate\Documents\Курсовой проект\DISPRTT\DISPRTT\obj\Debug\DISPRTT.AddItems.resources
+C:\Users\Kate\Documents\Курсовой проект\DISPRTT\DISPRTT\obj\Debug\DISPRTT.DeleteItems.resources
+C:\Users\Kate\Documents\Курсовой проект\DISPRTT\DISPRTT\obj\Debug\DISPRTT.ChangeItems.resources

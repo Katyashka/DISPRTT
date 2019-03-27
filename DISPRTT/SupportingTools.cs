@@ -77,7 +77,7 @@ namespace DISPRTT
                 MessageBox.Show("Не выбран справочник");
                 return;
             }
-            AddItems add = new AddItems(this,0);
+            AddItems add = new AddItems(this);
             add.Text = listBox1.SelectedItem.ToString();
             add.ShowDialog();
             switch (listBox1.SelectedIndex)
@@ -96,7 +96,26 @@ namespace DISPRTT
 
         private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (listBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Не выбран справочник");
+                return;
+            }
+            ChangeItems change = new ChangeItems(this);
+            change.Text = listBox1.SelectedItem.ToString();
+            change.ShowDialog();
+            switch (listBox1.SelectedIndex)
+            {
+                case 0:
+                    GetNastroyky();
+                    break;
+                case 1:
+                    GetVidTestirovaniya();
+                    break;
+                case 2:
+                    GetVidChasti();
+                    break;
+            }
         }
 
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,9 +125,9 @@ namespace DISPRTT
                 MessageBox.Show("Не выбран справочник");
                 return;
             }
-            AddItems add = new AddItems(this,0);
-            add.Text = listBox1.SelectedItem.ToString();
-            add.ShowDialog();
+            DeleteItems delete = new DeleteItems(this);
+            delete.Text = listBox1.SelectedItem.ToString();
+            delete.ShowDialog();
             switch (listBox1.SelectedIndex)
             {
                 case 0:

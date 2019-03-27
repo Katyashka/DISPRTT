@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Data;
 
 namespace DISPRTT
 {
@@ -30,7 +27,6 @@ namespace DISPRTT
             {
                 MdiParent = this
             };
-            //ddd
             directory.Show();
         }
 

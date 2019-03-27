@@ -45,9 +45,8 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(0, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(522, 227);
+            this.panel1.Size = new System.Drawing.Size(522, 228);
             this.panel1.TabIndex = 2;
-            this.panel1.Visible = false;
             // 
             // textBox1
             // 
@@ -71,7 +70,7 @@
             // 
             this.Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel.Location = new System.Drawing.Point(405, 236);
+            this.Cancel.Location = new System.Drawing.Point(405, 237);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(105, 35);
             this.Cancel.TabIndex = 1;
@@ -82,7 +81,7 @@
             // 
             this.add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.add.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.add.Location = new System.Drawing.Point(279, 238);
+            this.add.Location = new System.Drawing.Point(279, 239);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(105, 35);
             this.add.TabIndex = 0;
@@ -94,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 280);
+            this.ClientSize = new System.Drawing.Size(522, 281);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.add);
             this.Controls.Add(this.panel1);

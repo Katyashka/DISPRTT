@@ -7,7 +7,6 @@ namespace DISPRTT
     public partial class AddItems : Form
     {
         int i = 0;
-        int butIndex = 0;
         SupportingTools form;
         public AddItems(SupportingTools supportingTools)
         {
@@ -19,13 +18,6 @@ namespace DISPRTT
                 case 0:panel0.Visible = true;break;
                 case 1:panel1.Visible = true; break;
                 case 2:panel1.Visible = true;break;
-            }
-            switch (butIndex)
-            {
-                case 0:
-                    label4.Visible = textBox4.Visible = false;
-                    label5.Visible = textBox5.Visible = false;
-                    break;
             }
 
         }
