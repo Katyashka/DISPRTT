@@ -7,6 +7,7 @@ namespace DISPRTT
     {
         SupportingTools directory ;
         ConnectToDB connectTo;
+        Predmet pr;
 
         public Form1()
         {
@@ -38,6 +39,19 @@ namespace DISPRTT
 
         private void ShowSubjects(object sender, EventArgs e)
         {
+            if (Requests.R_sqlConnection == null)
+            {
+                MessageBox.Show("Вы не подключены к серверу");
+                return;
+            }
+            if (pr != null && !pr.IsDisposed)
+                return;
+
+            pr = new Predmet
+            {
+                MdiParent = this
+            };
+            pr.Show();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
