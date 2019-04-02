@@ -20,7 +20,7 @@ namespace DISPRTT
             dob = new Dobavit();
             dob.ShowDialog();
         }
-        private void GetNastroyky()
+        private void GetPredmet()
         {
             try
             {
@@ -35,10 +35,10 @@ namespace DISPRTT
                 MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
             }
         }
-
+        
         private void Predmet_Load(object sender, EventArgs e)
         {
-            GetNastroyky();
+            GetPredmet();
         }
     }
 }

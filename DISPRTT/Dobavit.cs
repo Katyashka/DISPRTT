@@ -18,11 +18,13 @@ namespace DISPRTT
             data.InsertCommand.CommandType = CommandType.StoredProcedure;
             SqlParameter dob = new SqlParameter
             {
-                ParameterName = "@put",
+                ParameterName = "@nazvanie",
                 Value = textBox1.Text
             };
             data.InsertCommand.Parameters.Add(dob);
             data.InsertCommand.ExecuteNonQuery();
         }
+
+
     }
 }
