@@ -42,3 +42,5 @@ C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\obj\Debug\DISPRTT.csproj
 C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\obj\Debug\DISPRTT.csproj.CoreCompileInputs.cache
 C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\obj\Debug\DISPRTT.exe
 C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\obj\Debug\DISPRTT.pdb
+C:\Users\Kate\Documents\Курсовой проект\DISPRTT\DISPRTT\obj\Debug\DISPRTT.Dobavit.resources
+C:\Users\Kate\Documents\Курсовой проект\DISPRTT\DISPRTT\obj\Debug\DISPRTT.Predmet.resources

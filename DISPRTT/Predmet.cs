@@ -17,7 +17,7 @@ namespace DISPRTT
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dob = new Dobavit();
+            dob = new Dobavit(this);
             dob.ShowDialog();
         }
         private void GetPredmet()

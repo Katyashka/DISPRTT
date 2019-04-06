@@ -6,23 +6,24 @@ namespace DISPRTT
 {
     public partial class Dobavit : Form
     {
-        public Dobavit()
+        Predmet prd;
+        public Dobavit(Predmet predmet)
         {
+            prd = predmet;
             InitializeComponent();
         }
-        public SqlDataAdapter data;
         private void button1_Click(object sender, System.EventArgs e)
         {
-            data.InsertCommand = new SqlCommand("AddPredmet");
-            data.InsertCommand.Connection = data.SelectCommand.Connection;
-            data.InsertCommand.CommandType = CommandType.StoredProcedure;
+            prd.dataAdapter.InsertCommand = new SqlCommand("AddPredmet");
+            prd.dataAdapter.InsertCommand.Connection = prd.dataAdapter.SelectCommand.Connection;
+            prd.dataAdapter.InsertCommand.CommandType = CommandType.StoredProcedure;
             SqlParameter dob = new SqlParameter
             {
                 ParameterName = "@nazvanie",
                 Value = textBox1.Text
             };
-            data.InsertCommand.Parameters.Add(dob);
-            data.InsertCommand.ExecuteNonQuery();
+            prd.dataAdapter.InsertCommand.Parameters.Add(dob);
+            prd.dataAdapter.InsertCommand.ExecuteNonQuery();
         }
 
 
