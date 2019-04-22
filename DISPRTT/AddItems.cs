@@ -45,8 +45,7 @@ namespace DISPRTT
                             Value = textBox2.Text
                         };
                         form.dataAdapter.InsertCommand.Parameters.Add(commentParam);
-                        var x = form.dataAdapter.InsertCommand.Connection;
-                        var y = form.dataAdapter.InsertCommand.ExecuteScalar();
+                        form.dataAdapter.InsertCommand.ExecuteScalar();
                     }
                     catch (SqlException)
                     {

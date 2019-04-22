@@ -17,10 +17,10 @@ namespace DISPRTT
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dob = new Dobavit();
+            dob = new Dobavit(this);
             dob.ShowDialog();
         }
-        private void GetNastroyky()
+        private void GetPredmet()
         {
             try
             {
@@ -35,10 +35,10 @@ namespace DISPRTT
                 MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
             }
         }
-
+        
         private void Predmet_Load(object sender, EventArgs e)
         {
-            //GetNastroyky();
+            GetNastroyky();
         }
     }
 }
