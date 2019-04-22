@@ -95,5 +95,9 @@ namespace DISPRTT
                     break;
             }
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        }
     }
 }
