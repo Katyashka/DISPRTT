@@ -18,21 +18,19 @@ namespace DISPRTT
         {
             try
             {
-                
                 prd.dataAdapter.InsertCommand = new SqlCommand("AddPredmet");
+                //prd.dataAdapter.InsertCommand = new SqlCommand("GetVidTestirovaniya");
                 prd.dataAdapter.InsertCommand.Connection = prd.dataAdapter.SelectCommand.Connection;
                 prd.dataAdapter.InsertCommand.CommandType = CommandType.StoredProcedure;
-                prd.dataAdapter.InsertCommand = new SqlCommand("GetVidTestirovaniya");
 
                 SqlParameter fkParameter = new SqlParameter
-                {
-
+                {//здесь должно храниться число
                     ParameterName = "@fk_vt",
                     Value = comboBox2.Text
                 };
                 prd.dataAdapter.InsertCommand.Parameters.Add(fkParameter);
                 SqlParameter kodParameter = new SqlParameter
-                {
+                {//здесь должно храниться число
                     ParameterName = "@kod",
                     Value = textBox1.Text
                 };
@@ -67,7 +65,7 @@ namespace DISPRTT
                     Value = comboBox1.Text
                 };
                 prd.dataAdapter.InsertCommand.Parameters.Add(projectfileParameter);
-                prd.dataAdapter.InsertCommand.ExecuteScalar();
+                var p = prd.dataAdapter.InsertCommand.ExecuteScalar();
             }
             catch (SqlException)
             {

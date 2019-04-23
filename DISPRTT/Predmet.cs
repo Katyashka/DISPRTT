@@ -38,7 +38,7 @@ namespace DISPRTT
         
         private void Predmet_Load(object sender, EventArgs e)
         {
-            GetNastroyky();
+            GetPredmet();
         }
     }
 }
