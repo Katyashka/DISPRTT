@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -22,17 +22,16 @@ namespace DISPRTT
                 //prd.dataAdapter.InsertCommand = new SqlCommand("GetVidTestirovaniya");
                 prd.dataAdapter.InsertCommand.Connection = prd.dataAdapter.SelectCommand.Connection;
                 prd.dataAdapter.InsertCommand.CommandType = CommandType.StoredProcedure;
-
                 SqlParameter fkParameter = new SqlParameter
-                {//здесь должно храниться число
+                {                    
                     ParameterName = "@fk_vt",
-                    Value = comboBox2.Text
+                    Value = Convert.ToInt32(s)
                 };
                 prd.dataAdapter.InsertCommand.Parameters.Add(fkParameter);
                 SqlParameter kodParameter = new SqlParameter
-                {//здесь должно храниться число
+                {
                     ParameterName = "@kod",
-                    Value = textBox1.Text
+                    Value = Convert.ToInt32(textBox1.Text)
                 };
                 prd.dataAdapter.InsertCommand.Parameters.Add(kodParameter);
                 SqlParameter nazvanieParameter = new SqlParameter
@@ -44,7 +43,7 @@ namespace DISPRTT
                 SqlParameter kodprintParameter = new SqlParameter
                 {
                     ParameterName = "@kodprint",
-                    Value = textBox3.Text
+                    Value = Convert.ToInt32(textBox3.Text)
                 };
                 prd.dataAdapter.InsertCommand.Parameters.Add(kodprintParameter);
                 SqlParameter nameParameter = new SqlParameter
@@ -56,7 +55,7 @@ namespace DISPRTT
                 SqlParameter minballParameter = new SqlParameter
                 {
                     ParameterName = "@minball",
-                    Value = textBox5.Text
+                    Value = Convert.ToInt32(textBox5.Text)
                 };
                 prd.dataAdapter.InsertCommand.Parameters.Add(minballParameter);
                 SqlParameter projectfileParameter = new SqlParameter
@@ -72,7 +71,20 @@ namespace DISPRTT
                 MessageBox.Show("Возможно, вы не правильно выбрали БД для подключения");
             }
         }
-
+        string s = "";
+        public void FindId()
+        {
+            DataSet myDS = new DataSet();
+            SqlDataAdapter dAdapt = new SqlDataAdapter("Select * from VidTestirovaniya", Requests.R_sqlConnection);
+            dAdapt.Fill(myDS, "VidTestirovaniya");
+                for (int i = 0; i<myDS.Tables["VidTestirovaniya"].Rows.Count; i++)
+                {
+                    if (myDS.Tables["VidTestirovaniya"].Rows[i][1].ToString() == comboBox2.Text)
+                    {
+                      s = myDS.Tables["VidTestirovaniya"].Rows[i][0].ToString();
+                    }
+                }
+        }
         public void Zapolnenie2()
         {
             DataSet myDS = new DataSet();
@@ -102,6 +114,11 @@ namespace DISPRTT
         {
             Zapolnenie1();
             Zapolnenie2();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FindId();
         }
     }
 }
