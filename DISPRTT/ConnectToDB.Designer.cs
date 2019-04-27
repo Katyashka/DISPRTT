@@ -40,19 +40,20 @@
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(16, 58);
-            this.label.Margin = new System.Windows.Forms.Padding(10000, 0, 0, 0);
+            this.label.Location = new System.Drawing.Point(11, 38);
+            this.label.Margin = new System.Windows.Forms.Padding(6667, 0, 0, 0);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(106, 20);
+            this.label.Size = new System.Drawing.Size(74, 13);
             this.label.TabIndex = 1;
             this.label.Text = "Имя сервера";
             // 
             // Ok
             // 
             this.Ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Ok.Location = new System.Drawing.Point(368, 205);
+            this.Ok.Location = new System.Drawing.Point(245, 133);
+            this.Ok.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Ok.Name = "Ok";
-            this.Ok.Size = new System.Drawing.Size(81, 35);
+            this.Ok.Size = new System.Drawing.Size(54, 23);
             this.Ok.TabIndex = 1;
             this.Ok.Text = "OK";
             this.Ok.UseVisualStyleBackColor = true;
@@ -62,9 +63,10 @@
             // 
             this.Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel.Location = new System.Drawing.Point(464, 205);
+            this.Cancel.Location = new System.Drawing.Point(309, 133);
+            this.Cancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(81, 35);
+            this.Cancel.Size = new System.Drawing.Size(54, 23);
             this.Cancel.TabIndex = 3;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = true;
@@ -72,9 +74,10 @@
             // connect
             // 
             this.connect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.connect.Location = new System.Drawing.Point(426, 89);
+            this.connect.Location = new System.Drawing.Point(284, 58);
+            this.connect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.connect.Name = "connect";
-            this.connect.Size = new System.Drawing.Size(118, 34);
+            this.connect.Size = new System.Drawing.Size(79, 22);
             this.connect.TabIndex = 0;
             this.connect.Text = "Соединить";
             this.connect.UseVisualStyleBackColor = true;
@@ -84,38 +87,40 @@
             // 
             this.serverName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.serverName.Location = new System.Drawing.Point(214, 55);
+            this.serverName.Location = new System.Drawing.Point(143, 36);
+            this.serverName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.serverName.Name = "serverName";
-            this.serverName.Size = new System.Drawing.Size(330, 26);
+            this.serverName.Size = new System.Drawing.Size(221, 20);
             this.serverName.TabIndex = 6;
-            this.serverName.Text = "DESKTOP-33SD3ML\\SQL";
+            this.serverName.Text = "VERA-SA\\SQLEXPRESS";
             // 
             // dbName
             // 
             this.dbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dbName.FormattingEnabled = true;
-            this.dbName.Location = new System.Drawing.Point(216, 151);
+            this.dbName.Location = new System.Drawing.Point(144, 98);
+            this.dbName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dbName.Name = "dbName";
-            this.dbName.Size = new System.Drawing.Size(330, 28);
+            this.dbName.Size = new System.Drawing.Size(221, 21);
             this.dbName.TabIndex = 7;
             this.dbName.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 155);
-            this.label1.Margin = new System.Windows.Forms.Padding(10000, 0, 0, 0);
+            this.label1.Location = new System.Drawing.Point(11, 101);
+            this.label1.Margin = new System.Windows.Forms.Padding(6667, 0, 0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 20);
+            this.label1.Size = new System.Drawing.Size(126, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = "Название базы данных";
             this.label1.Visible = false;
             // 
             // ConnectToDB
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 265);
+            this.ClientSize = new System.Drawing.Size(374, 172);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dbName);
             this.Controls.Add(this.serverName);
@@ -124,6 +129,7 @@
             this.Controls.Add(this.Ok);
             this.Controls.Add(this.label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ConnectToDB";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConnectToDB";

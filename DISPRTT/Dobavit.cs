@@ -65,6 +65,7 @@ namespace DISPRTT
                 };
                 prd.dataAdapter.InsertCommand.Parameters.Add(projectfileParameter);
                 var p = prd.dataAdapter.InsertCommand.ExecuteScalar();
+                this.Close();
             }
             catch (SqlException)
             {
