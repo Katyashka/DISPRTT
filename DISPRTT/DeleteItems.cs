@@ -24,7 +24,7 @@ namespace DISPRTT
 
         private void delete_Click(object sender, System.EventArgs e)
         {
-                var con = form.dataAdapter.SelectCommand.Connection;
+            var con = form.dataAdapter.SelectCommand.Connection;
             try
             {
                 switch (i)

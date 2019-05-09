@@ -8,11 +8,17 @@ namespace DISPRTT
     {
         int i = 0;
         SupportingTools form;
-        public AddItems(SupportingTools supportingTools)
+        int id;
+        public AddItems(SupportingTools supportingTools,int id)
         {
             InitializeComponent();
+            this.id = id;
             form = supportingTools;
             i = form.listBox1.SelectedIndex;
+            if (form.Tag.ToString() == "Add")
+                save.Visible = false;
+            if (form.Tag.ToString() == "Edit")
+                add.Visible = false;
             switch (i)
             {
                 case 0:panel0.Visible = true;break;
@@ -92,6 +98,79 @@ namespace DISPRTT
                         MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
                     }
                     break;
+            }
+        }
+
+        private void save_Click(object sender, System.EventArgs e)
+        {
+            var con = form.dataAdapter.SelectCommand.Connection;
+            try
+            {
+                SqlParameter idParam = new SqlParameter { };
+                SqlParameter text = new SqlParameter { };
+                
+                    switch (i)
+                    {
+                        case 0:
+                            //Запрос на обновление позиции в бд настройки и создание параметров
+                            form.dataAdapter.UpdateCommand = new SqlCommand("UpdateNastroyky");
+                            idParam = new SqlParameter
+                            {
+                                ParameterName = "@id",
+                                Value = id
+                            };
+                            text = new SqlParameter
+                            {
+                                ParameterName = "@put",
+                                Value = textBox1.Text
+                            };
+                            SqlParameter com = new SqlParameter
+                            {
+                                ParameterName = "@comment",
+                                Value = textBox2.Text
+                            };
+                            form.dataAdapter.UpdateCommand.Parameters.Add(com);
+                            break;
+                        case 1:
+                            //Запрос на обновление позиции в бд вид тестирования и создание параметров
+                            form.dataAdapter.UpdateCommand = new SqlCommand("UpdateVidTestirovaniya");
+                            idParam = new SqlParameter
+                            {
+                                ParameterName = "@id",
+                                Value = id
+                            };
+                            text = new SqlParameter
+                            {
+                                ParameterName = "@name",
+                                Value = textBox3.Text
+                            };
+                            break;
+                        case 2:
+                            //Запрос на обновление позиции в бд вид тестирования и создание параметров
+                            form.dataAdapter.UpdateCommand = new SqlCommand("UpdateVidChasti");
+                            idParam = new SqlParameter
+                            {
+                                ParameterName = "@id",
+                                Value = id
+                            };
+                            text = new SqlParameter
+                            {
+                                ParameterName = "@name",
+                                Value = textBox3.Text
+                            };
+                            break;
+                    }
+                //Обновление позиции в бд определенной выше 
+                form.dataAdapter.UpdateCommand.Connection = form.dataAdapter.SelectCommand.Connection;
+                form.dataAdapter.UpdateCommand.CommandType = CommandType.StoredProcedure;
+                form.dataAdapter.UpdateCommand.Parameters.Add(idParam);
+                form.dataAdapter.UpdateCommand.Parameters.Add(text);
+
+                var y = form.dataAdapter.UpdateCommand.ExecuteScalar();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
             }
         }
 
