@@ -45,45 +45,44 @@
             this.справочникиToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip.Size = new System.Drawing.Size(457, 24);
+            this.menuStrip.ShowItemToolTips = true;
+            this.menuStrip.Size = new System.Drawing.Size(686, 32);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
             // 
             // подключитьсяКСерверуToolStripMenuItem
             // 
+            this.подключитьсяКСерверуToolStripMenuItem.Image = global::DISPRTT.Properties.Resources.database;
             this.подключитьсяКСерверуToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
             this.подключитьсяКСерверуToolStripMenuItem.Name = "подключитьсяКСерверуToolStripMenuItem";
-            this.подключитьсяКСерверуToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.подключитьсяКСерверуToolStripMenuItem.Text = "Подключиться к серверу";
+            this.подключитьсяКСерверуToolStripMenuItem.Size = new System.Drawing.Size(36, 28);
             this.подключитьсяКСерверуToolStripMenuItem.Click += new System.EventHandler(this.ShowConnectToDB);
             // 
             // предметыToolStripMenuItem
             // 
+            this.предметыToolStripMenuItem.Image = global::DISPRTT.Properties.Resources.book_bookmark_1;
             this.предметыToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
             this.предметыToolStripMenuItem.Name = "предметыToolStripMenuItem";
-            this.предметыToolStripMenuItem.Size = new System.Drawing.Size(76, 22);
-            this.предметыToolStripMenuItem.Text = "Предметы";
+            this.предметыToolStripMenuItem.Size = new System.Drawing.Size(36, 28);
             this.предметыToolStripMenuItem.Click += new System.EventHandler(this.ShowSubjects);
             // 
             // справочникиToolStripMenuItem
             // 
+            this.справочникиToolStripMenuItem.Image = global::DISPRTT.Properties.Resources.paper_clip_2;
             this.справочникиToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
-            this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
-            this.справочникиToolStripMenuItem.Text = "Справочники";
+            this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(36, 28);
             this.справочникиToolStripMenuItem.Click += new System.EventHandler(this.OpenDirectory_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(457, 303);
+            this.ClientSize = new System.Drawing.Size(686, 466);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

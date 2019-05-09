@@ -88,7 +88,7 @@
             this.serverName.Name = "serverName";
             this.serverName.Size = new System.Drawing.Size(330, 26);
             this.serverName.TabIndex = 6;
-            this.serverName.Text = "DESKTOP-33SD3ML\\SQL";
+            this.serverName.Text = "DESKTOP-33SD3ML\\MSSQLSERVER2";
             // 
             // dbName
             // 

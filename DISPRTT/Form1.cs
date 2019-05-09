@@ -7,18 +7,20 @@ namespace DISPRTT
 {
     public partial class Form1 : Form
     {
-        SupportingTools directory ;
+        SupportingTools directory;
         ConnectToDB connectTo;
         Predmet pr;
 
         public Form1()
         {
             InitializeComponent();
+            подключитьсяКСерверуToolStripMenuItem.ToolTipText = "Подключение к серверу";
+            предметыToolStripMenuItem.ToolTipText = "Предметы тестирования";
         }
 
         private void OpenDirectory_Click(object sender, EventArgs e)
         {
-            if(Requests.R_sqlConnection==null)
+            if (Requests.R_sqlConnection == null)
             {
                 MessageBox.Show("Вы не подключены к серверу");
                 return;
@@ -37,6 +39,11 @@ namespace DISPRTT
         {
             connectTo = new ConnectToDB();
             connectTo.ShowDialog();
+            //смена картинок в зависимости от подключения
+            if (Requests.R_sqlConnection == null)
+                подключитьсяКСерверуToolStripMenuItem.Image = ((System.Drawing.Image)(Properties.Resources.delete_database));
+            else
+                подключитьсяКСерверуToolStripMenuItem.Image = ((System.Drawing.Image)(Properties.Resources.database_check));
         }
 
         private void ShowSubjects(object sender, EventArgs e)
@@ -59,7 +66,7 @@ namespace DISPRTT
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (Requests.R_sqlConnection != null)
-                Requests.R_sqlConnection.Close();                
+                Requests.R_sqlConnection.Close();
         }
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)

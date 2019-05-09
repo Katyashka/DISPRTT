@@ -33,6 +33,10 @@ namespace DISPRTT
                 ds = new DataSet();
                 dataAdapter.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.RowHeadersVisible = false;
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Путь к файлам";
+                dataGridView1.Columns[2].HeaderText = "Комментарий";
             }
             catch (SqlException)
             {
@@ -48,6 +52,9 @@ namespace DISPRTT
                 ds = new DataSet();
                 dataAdapter.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.RowHeadersVisible = false;
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Название вида тестирования";
             }
             catch (SqlException)
             {
@@ -63,6 +70,9 @@ namespace DISPRTT
                 ds = new DataSet();
                 dataAdapter.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.RowHeadersVisible = false;
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Название вида части";
             }
             catch (SqlException)
             {
