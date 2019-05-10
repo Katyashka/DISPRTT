@@ -33,6 +33,10 @@ namespace DISPRTT
                 ds = new DataSet();
                 dataAdapter.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.RowHeadersVisible = false;
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Путь к файлам";
+                dataGridView1.Columns[2].HeaderText = "Комментарий";
             }
             catch (SqlException)
             {
@@ -48,6 +52,9 @@ namespace DISPRTT
                 ds = new DataSet();
                 dataAdapter.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.RowHeadersVisible = false;
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Название вида тестирования";
             }
             catch (SqlException)
             {
@@ -63,6 +70,9 @@ namespace DISPRTT
                 ds = new DataSet();
                 dataAdapter.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.RowHeadersVisible = false;
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Название вида части";
             }
             catch (SqlException)
             {
@@ -77,7 +87,8 @@ namespace DISPRTT
                 MessageBox.Show("Не выбран справочник");
                 return;
             }
-            AddItems add = new AddItems(this);
+            this.Tag = "Add";
+            AddItems add = new AddItems(this,-1);
             add.Text = listBox1.SelectedItem.ToString();
             add.ShowDialog();
             switch (listBox1.SelectedIndex)
@@ -101,7 +112,10 @@ namespace DISPRTT
                 MessageBox.Show("Не выбран справочник");
                 return;
             }
-            ChangeItems change = new ChangeItems(this);
+
+            this.Tag = "Edit";
+            AddItems change = new AddItems(this,int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+            //ChangeItems change = new ChangeItems(this);
             change.Text = listBox1.SelectedItem.ToString();
             change.ShowDialog();
             switch (listBox1.SelectedIndex)
@@ -125,9 +139,8 @@ namespace DISPRTT
                 MessageBox.Show("Не выбран справочник");
                 return;
             }
-            DeleteItems delete = new DeleteItems(this);
-            delete.Text = listBox1.SelectedItem.ToString();
-            delete.ShowDialog();
+            if (MessageBox.Show("Вы действительно хотите удалить выделенную строку из базы данных?", "Удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                Delete(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
             switch (listBox1.SelectedIndex)
             {
                 case 0:
@@ -141,5 +154,38 @@ namespace DISPRTT
                     break;
             }
         }
+        private void Delete(int id)
+        {
+            try
+            {//Определение таблицы, элемент которой требуется удалить
+                switch (listBox1.SelectedIndex)
+                {
+                    case 0:
+                        dataAdapter.DeleteCommand = new SqlCommand("DeleteNastroyky");
+                        break;
+                    case 1:
+                        dataAdapter.DeleteCommand = new SqlCommand("DeleteVidTestirovaniya");
+                        break;
+                    case 2:
+                        dataAdapter.DeleteCommand = new SqlCommand("DeleteVidChasti");
+                        break;
+                }
+                //Удаление позиции из бд определенной выше 
+                dataAdapter.DeleteCommand.Connection = Requests.R_sqlConnection;
+                dataAdapter.DeleteCommand.CommandType = CommandType.StoredProcedure;
+                SqlParameter idParam = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    Value = id
+                };
+                dataAdapter.DeleteCommand.Parameters.Add(idParam);
+                var y = dataAdapter.DeleteCommand.ExecuteScalar();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
+            }
+        }
+
     }
 }

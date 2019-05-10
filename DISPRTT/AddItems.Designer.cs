@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Cancel = new System.Windows.Forms.Button();
             this.add = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
             this.panel0.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -150,15 +151,28 @@
             this.add.UseVisualStyleBackColor = true;
             this.add.Click += new System.EventHandler(this.add_Click);
             // 
+            // save
+            // 
+            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.save.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.save.Location = new System.Drawing.Point(305, 282);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(105, 35);
+            this.save.TabIndex = 4;
+            this.save.Text = "Сохранить";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
             // AddItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 324);
             this.Controls.Add(this.Cancel);
-            this.Controls.Add(this.add);
-            this.Controls.Add(this.panel0);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.save);
+            this.Controls.Add(this.panel0);
+            this.Controls.Add(this.add);
             this.MinimumSize = new System.Drawing.Size(570, 380);
             this.Name = "AddItems";
             this.ShowIcon = false;
@@ -182,5 +196,6 @@
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button save;
     }
 }

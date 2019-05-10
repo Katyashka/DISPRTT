@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangeItems.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChangeItems.Designer.cs">
-      <DependentUpon>ChangeItems.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,11 +76,10 @@
     <Compile Include="Predmet.Designer.cs">
       <DependentUpon>Predmet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Razbalovka.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Razbalovka.Designer.cs">
-      <DependentUpon>Razbalovka.cs</DependentUpon>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SupportingTools.cs">
       <SubType>Form</SubType>
@@ -103,9 +96,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests.cs" />
-    <EmbeddedResource Include="ChangeItems.resx">
-      <DependentUpon>ChangeItems.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddItems.resx">
       <DependentUpon>AddItems.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,9 +111,6 @@
     <EmbeddedResource Include="Predmet.resx">
       <DependentUpon>Predmet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Razbalovka.resx">
-      <DependentUpon>Razbalovka.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SupportingTools.resx">
       <DependentUpon>SupportingTools.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,14 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -152,6 +134,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paper clip 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book bookmark 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\font background.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\delete database.png" />
+    <Content Include="Resources\database-check.ico" />
+    <None Include="Resources\database-check.png" />
+    <None Include="Resources\delete 1.png" />
+    <Content Include="Resources\delete database.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

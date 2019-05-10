@@ -66,6 +66,7 @@ namespace DISPRTT
                 sqlConnection.Open();
                 MessageBox.Show("Соединение установлено");
                 Requests.R_sqlConnection = sqlConnection;
+
                 this.Close();
             }
             catch
