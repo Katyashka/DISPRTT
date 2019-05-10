@@ -14,6 +14,7 @@ namespace DISPRTT
         public SqlDataAdapter dataAdapter;
         public DataSet ds;
         Dobavit dob;
+        Razbalovka razb;
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -39,6 +40,19 @@ namespace DISPRTT
         private void Predmet_Load(object sender, EventArgs e)
         {
             GetPredmet();
+        }
+
+        private void разбаловкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            razb = new Razbalovka(this);
+            razb.ShowDialog();
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int index = dataGridView1.CurrentRow.Index;
+            dataGridView1.Rows.RemoveAt(index);
+            dataGridView1.Refresh();
         }
     }
 }

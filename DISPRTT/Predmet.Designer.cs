@@ -33,6 +33,7 @@
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.разбаловкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
@@ -45,7 +46,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.добавитьToolStripMenuItem,
             this.удалитьToolStripMenuItem,
-            this.изменитьToolStripMenuItem});
+            this.изменитьToolStripMenuItem,
+            this.разбаловкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(509, 24);
@@ -64,12 +66,20 @@
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
             this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
             this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.изменитьToolStripMenuItem.Text = "Изменить";
+            // 
+            // разбаловкаToolStripMenuItem
+            // 
+            this.разбаловкаToolStripMenuItem.Name = "разбаловкаToolStripMenuItem";
+            this.разбаловкаToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.разбаловкаToolStripMenuItem.Text = "Разбаловка";
+            this.разбаловкаToolStripMenuItem.Click += new System.EventHandler(this.разбаловкаToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -115,5 +125,6 @@
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
         private System.Windows.Forms.BindingSource bindingSource1;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ToolStripMenuItem разбаловкаToolStripMenuItem;
     }
 }
