@@ -115,7 +115,6 @@ namespace DISPRTT
 
             this.Tag = "Edit";
             AddItems change = new AddItems(this,int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
-            //ChangeItems change = new ChangeItems(this);
             change.Text = listBox1.SelectedItem.ToString();
             change.ShowDialog();
             switch (listBox1.SelectedIndex)
