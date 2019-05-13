@@ -88,7 +88,7 @@ namespace DISPRTT
                 return;
             }
             this.Tag = "Add";
-            AddItems add = new AddItems(this,-1);
+            AddItems add = new AddItems(this, -1);
             add.Text = listBox1.SelectedItem.ToString();
             add.ShowDialog();
             switch (listBox1.SelectedIndex)
@@ -114,7 +114,7 @@ namespace DISPRTT
             }
 
             this.Tag = "Edit";
-            AddItems change = new AddItems(this,int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+            AddItems change = new AddItems(this, int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
             change.Text = listBox1.SelectedItem.ToString();
             change.ShowDialog();
             switch (listBox1.SelectedIndex)
@@ -132,7 +132,7 @@ namespace DISPRTT
         }
 
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
+        {
             if (listBox1.SelectedItem == null)
             {
                 MessageBox.Show("Не выбран справочник");
@@ -180,9 +180,14 @@ namespace DISPRTT
                 dataAdapter.DeleteCommand.Parameters.Add(idParam);
                 var y = dataAdapter.DeleteCommand.ExecuteScalar();
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
-                MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
+                if (e.Number <= 2)
+                    MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
+                //Удадение по fk
+                //Удалять вид тестирования и fk в таблице предмет заменить дефолтным значением
+                if (e.Number == 547)
+                    MessageBox.Show("Этот вид тестирования используется в одном из предметов.");
             }
         }
 
