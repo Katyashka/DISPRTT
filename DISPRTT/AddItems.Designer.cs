@@ -63,6 +63,7 @@
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(144, 104);
+            this.textBox2.MaxLength = 500;
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -74,10 +75,10 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(144, 53);
+            this.textBox1.MaxLength = 200;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(392, 26);
             this.textBox1.TabIndex = 0;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label2
             // 
@@ -115,6 +116,7 @@
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.Location = new System.Drawing.Point(144, 122);
+            this.textBox3.MaxLength = 100;
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(392, 26);
             this.textBox3.TabIndex = 2;
@@ -169,10 +171,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(548, 324);
             this.Controls.Add(this.Cancel);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.save);
             this.Controls.Add(this.panel0);
             this.Controls.Add(this.add);
+            this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(570, 380);
             this.Name = "AddItems";
             this.ShowIcon = false;
