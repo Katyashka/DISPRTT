@@ -29,7 +29,6 @@ C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\bin\Debug\DISPRTT.exe.co
 C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\bin\Debug\DISPRTT.exe
 C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\bin\Debug\DISPRTT.pdb
 C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\obj\Debug\DISPRTT.csprojAssemblyReference.cache
-C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\obj\Debug\DISPRTT.ChangeItems.resources
 C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\obj\Debug\DISPRTT.ConnectToDB.resources
 C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\obj\Debug\DISPRTT.AddItems.resources
 C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\obj\Debug\DISPRTT.DeleteItems.resources
@@ -44,4 +43,3 @@ C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\obj\Debug\DISPRTT.exe
 C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\obj\Debug\DISPRTT.pdb
 C:\Users\Kate\Documents\Курсовой проект\DISPRTT\DISPRTT\obj\Debug\DISPRTT.Dobavit.resources
 C:\Users\Kate\Documents\Курсовой проект\DISPRTT\DISPRTT\obj\Debug\DISPRTT.Predmet.resources
-C:\Users\вера\Desktop\гитхаб\DISPRTT2\DISPRTT\obj\Debug\DISPRTT.Razbalovka.resources

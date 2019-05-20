@@ -14,7 +14,7 @@ namespace DISPRTT
         public SqlDataAdapter dataAdapter;
         public DataSet ds;
         Dobavit dob;
-        Razbalovka razb;
+        //Razbalovka razb;
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -44,15 +44,39 @@ namespace DISPRTT
 
         private void разбаловкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            razb = new Razbalovka(this);
-            razb.ShowDialog();
+            //    razb = new Razbalovka(this);
+            //    razb.ShowDialog();
         }
 
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int index = dataGridView1.CurrentRow.Index;
-            dataGridView1.Rows.RemoveAt(index);
-            dataGridView1.Refresh();
+        }
+
+        private void удалитьToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Вы действительно хотите удалить выделенную строку из базы данных?", "Удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                Delete(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+            GetPredmet();
+        }
+        private void Delete(int id)
+        {
+            try
+            {
+                dataAdapter.DeleteCommand = new SqlCommand("DeletePredmet"); 
+                dataAdapter.DeleteCommand.Connection = Requests.R_sqlConnection;
+                dataAdapter.DeleteCommand.CommandType = CommandType.StoredProcedure;
+                SqlParameter idParam = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    Value = id
+                };
+                dataAdapter.DeleteCommand.Parameters.Add(idParam);
+                var y = dataAdapter.DeleteCommand.ExecuteScalar();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
+            }
         }
     }
 }
