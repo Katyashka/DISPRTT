@@ -15,10 +15,10 @@ namespace DISPRTT
             prd = predmet;
             this.id = id;
             if (prd.Tag.ToString() == "Add")
-                button1.Visible = false;
+                button2.Visible = false;
             if (prd.Tag.ToString() == "Edit")
             {
-                button2.Visible = false;
+                button1.Visible = false;
                 comboBox1.Text = prd.dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 textBox1.Text = prd.dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                 textBox2.Text = prd.dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
