@@ -10,16 +10,19 @@ namespace DISPRTT
         public Predmet()
         {
             InitializeComponent();
+            dataGridView1.AutoGenerateColumns = true;
         }
         public SqlDataAdapter dataAdapter;
         public DataSet ds;
         Dobavit dob;
-        //Razbalovka razb;
+        Razbalovka razb;
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dob = new Dobavit(this);
+            this.Tag = "Add";
+            dob = new Dobavit(this, -1);
             dob.ShowDialog();
+            GetPredmet();
         }
         private void GetPredmet()
         {
@@ -30,6 +33,8 @@ namespace DISPRTT
                 ds = new DataSet();
                 dataAdapter.Fill(ds);
                 dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.RowHeadersVisible = false;
+                dataGridView1.Columns[0].Visible = false;
             }
             catch (SqlException)
             {
@@ -42,41 +47,18 @@ namespace DISPRTT
             GetPredmet();
         }
 
+        private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Tag = "Edit";
+            Dobavit change = new Dobavit(this, int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+            change.ShowDialog();
+            GetPredmet();            
+        }
+
         private void разбаловкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //    razb = new Razbalovka(this);
-            //    razb.ShowDialog();
-        }
-
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void удалитьToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Вы действительно хотите удалить выделенную строку из базы данных?", "Удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                Delete(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
-            GetPredmet();
-        }
-        private void Delete(int id)
-        {
-            try
-            {
-                dataAdapter.DeleteCommand = new SqlCommand("DeletePredmet"); 
-                dataAdapter.DeleteCommand.Connection = Requests.R_sqlConnection;
-                dataAdapter.DeleteCommand.CommandType = CommandType.StoredProcedure;
-                SqlParameter idParam = new SqlParameter
-                {
-                    ParameterName = "@id",
-                    Value = id
-                };
-                dataAdapter.DeleteCommand.Parameters.Add(idParam);
-                var y = dataAdapter.DeleteCommand.ExecuteScalar();
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
-            }
+            razb = new Razbalovka(this);
+            razb.ShowDialog();
         }
     }
 }

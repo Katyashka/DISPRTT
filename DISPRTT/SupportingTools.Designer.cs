@@ -35,7 +35,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.add = new System.Windows.Forms.ToolStripMenuItem();
             this.edit = new System.Windows.Forms.ToolStripMenuItem();
-            this.delete = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -47,14 +46,14 @@
             // 
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
             this.listBox1.Items.AddRange(new object[] {
             "Настройки",
             "Вид тестирования",
             "Вид части теста"});
             this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(152, 449);
+            this.listBox1.Size = new System.Drawing.Size(103, 292);
             this.listBox1.TabIndex = 6;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -63,9 +62,10 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.menuStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(152, 0);
+            this.panel1.Location = new System.Drawing.Point(103, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(614, 449);
+            this.panel1.Size = new System.Drawing.Size(408, 292);
             this.panel1.TabIndex = 5;
             // 
             // dataGridView1
@@ -76,12 +76,13 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 32);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 30);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(614, 417);
+            this.dataGridView1.Size = new System.Drawing.Size(408, 262);
             this.dataGridView1.TabIndex = 2;
             // 
             // menuStrip1
@@ -89,11 +90,11 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.add,
-            this.edit,
-            this.delete});
+            this.edit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(614, 32);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(408, 30);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -111,20 +112,14 @@
             this.edit.Size = new System.Drawing.Size(36, 28);
             this.edit.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
-            // delete
-            // 
-            this.delete.Image = global::DISPRTT.Properties.Resources.delete_1;
-            this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(36, 28);
-            this.delete.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
-            // 
             // SupportingTools
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 449);
+            this.ClientSize = new System.Drawing.Size(511, 292);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SupportingTools";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -142,7 +137,6 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem delete;
         private System.Windows.Forms.ToolStripMenuItem edit;
         private System.Windows.Forms.ToolStripMenuItem add;
         public System.Windows.Forms.DataGridView dataGridView1;

@@ -12,9 +12,11 @@ namespace DISPRTT
 {
     public partial class Razbalovka : Form
     {
-        public Razbalovka()
+        Predmet prd;
+        public Razbalovka(Predmet predmet)
         {
             InitializeComponent();
+            prd = predmet;
         }
     }
 }

@@ -8,10 +8,25 @@ namespace DISPRTT
     public partial class Dobavit : Form
     {
         Predmet prd;
-        public Dobavit(Predmet predmet)
+        int id;
+        public Dobavit(Predmet predmet, int id)
         {
-            prd = predmet;
             InitializeComponent();
+            prd = predmet;
+            this.id = id;
+            if (prd.Tag.ToString() == "Add")
+                button1.Visible = false;
+            if (prd.Tag.ToString() == "Edit")
+            {
+                button2.Visible = false;
+                comboBox1.Text = prd.dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                textBox1.Text = prd.dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                textBox2.Text = prd.dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                textBox3.Text = prd.dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                textBox4.Text = prd.dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                textBox5.Text = prd.dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+                comboBox2.Text = prd.dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+            }
         }
 
         private void button1_Click(object sender, System.EventArgs e)
@@ -19,7 +34,6 @@ namespace DISPRTT
             try
             {
                 prd.dataAdapter.InsertCommand = new SqlCommand("AddPredmet");
-                //prd.dataAdapter.InsertCommand = new SqlCommand("GetVidTestirovaniya");
                 prd.dataAdapter.InsertCommand.Connection = prd.dataAdapter.SelectCommand.Connection;
                 prd.dataAdapter.InsertCommand.CommandType = CommandType.StoredProcedure;
                 SqlParameter fkParameter = new SqlParameter
@@ -121,5 +135,20 @@ namespace DISPRTT
         {
             FindId();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlParameter idParam = new SqlParameter { };
+                SqlParameter text = new SqlParameter { };
+                //Запрос на обновление позиции в бд настройки и создание параметров
+                prd.dataAdapter.UpdateCommand = new SqlCommand("UpdateNastroyky");
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
+            }
+        }                       
     }
 }

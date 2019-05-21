@@ -81,6 +81,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Razbalovka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Razbalovka.Designer.cs">
+      <DependentUpon>Razbalovka.cs</DependentUpon>
+    </Compile>
     <Compile Include="SupportingTools.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Predmet.resx">
       <DependentUpon>Predmet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Razbalovka.resx">
+      <DependentUpon>Razbalovka.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SupportingTools.resx">
       <DependentUpon>SupportingTools.cs</DependentUpon>
