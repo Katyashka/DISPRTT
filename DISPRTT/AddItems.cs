@@ -112,6 +112,10 @@ namespace DISPRTT
                     {
                         MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
                     }
+                    catch (System.IO.FileNotFoundException)
+                    {
+                        MessageBox.Show("Возможно Вы не правильно указали путь");
+                    }
                     break;
             }
         }
@@ -127,6 +131,9 @@ namespace DISPRTT
                 switch (i)
                 {
                     case 0:
+
+                        if (!System.IO.Directory.Exists(textBox1.Text))
+                            throw new System.IO.FileNotFoundException();
                         //Запрос на обновление позиции в бд настройки и создание параметров
                         form.dataAdapter.UpdateCommand = new SqlCommand("UpdateNastroyky");
                         idParam = new SqlParameter

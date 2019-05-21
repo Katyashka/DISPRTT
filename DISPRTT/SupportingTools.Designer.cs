@@ -35,7 +35,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.add = new System.Windows.Forms.ToolStripMenuItem();
             this.edit = new System.Windows.Forms.ToolStripMenuItem();
-            this.delete = new System.Windows.Forms.ToolStripMenuItem();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -89,8 +88,7 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.add,
-            this.edit,
-            this.delete});
+            this.edit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(614, 32);
@@ -110,13 +108,6 @@
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(36, 28);
             this.edit.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
-            // 
-            // delete
-            // 
-            this.delete.Image = global::DISPRTT.Properties.Resources.delete_1;
-            this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(36, 28);
-            this.delete.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
             // SupportingTools
             // 
@@ -142,7 +133,6 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem delete;
         private System.Windows.Forms.ToolStripMenuItem edit;
         private System.Windows.Forms.ToolStripMenuItem add;
         public System.Windows.Forms.DataGridView dataGridView1;

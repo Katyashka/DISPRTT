@@ -131,65 +131,63 @@ namespace DISPRTT
             }
         }
 
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (listBox1.SelectedItem == null)
-            {
-                MessageBox.Show("Не выбран справочник");
-                return;
-            }
-            if (MessageBox.Show("Вы действительно хотите удалить выделенную строку из базы данных?", "Удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                Delete(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
-            switch (listBox1.SelectedIndex)
-            {
-                case 0:
-                    GetNastroyky();
-                    break;
-                case 1:
-                    GetVidTestirovaniya();
-                    break;
-                case 2:
-                    GetVidChasti();
-                    break;
-            }
-        }
-        private void Delete(int id)
-        {
-            try
-            {//Определение таблицы, элемент которой требуется удалить
-                switch (listBox1.SelectedIndex)
-                {
-                    case 0:
-                        dataAdapter.DeleteCommand = new SqlCommand("DeleteNastroyky");
-                        break;
-                    case 1:
-                        dataAdapter.DeleteCommand = new SqlCommand("DeleteVidTestirovaniya");
-                        break;
-                    case 2:
-                        dataAdapter.DeleteCommand = new SqlCommand("DeleteVidChasti");
-                        break;
-                }
-                //Удаление позиции из бд определенной выше 
-                dataAdapter.DeleteCommand.Connection = Requests.R_sqlConnection;
-                dataAdapter.DeleteCommand.CommandType = CommandType.StoredProcedure;
-                SqlParameter idParam = new SqlParameter
-                {
-                    ParameterName = "@id",
-                    Value = id
-                };
-                dataAdapter.DeleteCommand.Parameters.Add(idParam);
-                var y = dataAdapter.DeleteCommand.ExecuteScalar();
-            }
-            catch (SqlException e)
-            {
-                if (e.Number <= 2)
-                    MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
-                //Удадение по fk
-                //Удалять вид тестирования и fk в таблице предмет заменить дефолтным значением
-                if (e.Number == 547)
-                    MessageBox.Show("Этот вид тестирования используется в одном из предметов.");
-            }
-        }
+        //private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    if (listBox1.SelectedItem == null)
+        //    {
+        //        MessageBox.Show("Не выбран справочник");
+        //        return;
+        //    }
+        //    if (MessageBox.Show("Вы действительно хотите удалить выделенную строку из базы данных?", "Удаление", MessageBoxButtons.YesNo) == DialogResult.Yes)
+        //        Delete(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
+        //    switch (listBox1.SelectedIndex)
+        //    {
+        //        case 0:
+        //            GetNastroyky();
+        //            break;
+        //        case 1:
+        //            GetVidTestirovaniya();
+        //            break;
+        //        case 2:
+        //            GetVidChasti();
+        //            break;
+        //    }
+        //}
+        //private void Delete(int id)
+        //{
+        //    try
+        //    {//Определение таблицы, элемент которой требуется удалить
+        //        switch (listBox1.SelectedIndex)
+        //        {
+        //            case 0:
+        //                dataAdapter.DeleteCommand = new SqlCommand("DeleteNastroyky");
+        //                break;
+        //            case 1:
+        //                dataAdapter.DeleteCommand = new SqlCommand("DeleteVidTestirovaniya");
+        //                break;
+        //            case 2:
+        //                dataAdapter.DeleteCommand = new SqlCommand("DeleteVidChasti");
+        //                break;
+        //        }
+        //        //Удаление позиции из бд определенной выше 
+        //        dataAdapter.DeleteCommand.Connection = Requests.R_sqlConnection;
+        //        dataAdapter.DeleteCommand.CommandType = CommandType.StoredProcedure;
+        //        SqlParameter idParam = new SqlParameter
+        //        {
+        //            ParameterName = "@id",
+        //            Value = id
+        //        };
+        //        dataAdapter.DeleteCommand.Parameters.Add(idParam);
+        //        var y = dataAdapter.DeleteCommand.ExecuteScalar();
+        //    }
+        //    catch (SqlException e)
+        //    {
+        //        if (e.Number <= 2)
+        //            MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
+        //        if (e.Number == 547)
+        //            MessageBox.Show("Этот вид тестирования используется в одном из предметов.");
+        //    }
+        //}
 
     }
 }
