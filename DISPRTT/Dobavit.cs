@@ -19,13 +19,13 @@ namespace DISPRTT
             if (prd.Tag.ToString() == "Edit")
             {
                 button1.Visible = false;
-                comboBox1.Text = prd.dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                textBox1.Text = prd.dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                textBox2.Text = prd.dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-                textBox3.Text = prd.dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-                textBox4.Text = prd.dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-                textBox5.Text = prd.dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
-                comboBox2.Text = prd.dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+                comboBox1.Text = prd.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                textBox1.Text = prd.dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                textBox2.Text = prd.dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                textBox3.Text = prd.dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                textBox4.Text = prd.dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                textBox5.Text = prd.dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                comboBox2.Text = prd.dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
             }
         }
 
@@ -140,15 +140,91 @@ namespace DISPRTT
         {
             try
             {
-                SqlParameter idParam = new SqlParameter { };
-                SqlParameter text = new SqlParameter { };
-                //Запрос на обновление позиции в бд настройки и создание параметров
-                prd.dataAdapter.UpdateCommand = new SqlCommand("UpdateNastroyky");
+                prd.dataAdapter.UpdateCommand = new SqlCommand("UpdatePredmet");
+                SqlParameter idParam = new SqlParameter
+                {
+                    ParameterName = "@id",
+                    Value = id
+                };
+                prd.dataAdapter.UpdateCommand.Parameters.Add(idParam);
+                SqlParameter fk = new SqlParameter
+                {
+                    ParameterName = "@fk_vt",
+                    Value = comboBox2.Text
+                };
+                prd.dataAdapter.UpdateCommand.Parameters.Add(fk);
+                SqlParameter kod = new SqlParameter
+                {
+                    ParameterName = "@kod",
+                    Value = textBox1.Text
+                };
+                prd.dataAdapter.UpdateCommand.Parameters.Add(kod);
+                SqlParameter nazvanie = new SqlParameter
+                {
+                    ParameterName = "@nazvanie",
+                    Value = textBox2.Text
+                };
+                prd.dataAdapter.UpdateCommand.Parameters.Add(nazvanie);
+                SqlParameter kodprint = new SqlParameter
+                {
+                    ParameterName = "@kodprint",
+                    Value = textBox3.Text
+                };
+                prd.dataAdapter.UpdateCommand.Parameters.Add(kodprint);
+                SqlParameter name = new SqlParameter
+                {
+                    ParameterName = "@name",
+                    Value = textBox4.Text
+                };
+                prd.dataAdapter.UpdateCommand.Parameters.Add(name);
+                SqlParameter ball = new SqlParameter
+                {
+                    ParameterName = "@minball",
+                    Value = textBox5.Text
+                };
+                prd.dataAdapter.UpdateCommand.Parameters.Add(ball);
+                SqlParameter prj = new SqlParameter
+                {
+                    ParameterName = "@projectfile",
+                    Value = comboBox1.Text
+                };
+                prd.dataAdapter.UpdateCommand.Parameters.Add(prj);
+                prd.dataAdapter.UpdateCommand.Connection = prd.dataAdapter.SelectCommand.Connection;
+                prd.dataAdapter.UpdateCommand.CommandType = CommandType.StoredProcedure;             
             }
             catch (SqlException)
             {
                 MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
             }
-        }                       
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char n = e.KeyChar;
+            if (!Char.IsDigit(n) && n != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char n = e.KeyChar;
+            if (!Char.IsDigit(n) && n != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char n = e.KeyChar;
+            if (!Char.IsDigit(n) && n != 8) 
+            {
+                e.Handled = true;
+            }
+        }
+
+       
     }
 }
