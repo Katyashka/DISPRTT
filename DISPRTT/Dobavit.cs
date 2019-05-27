@@ -9,6 +9,7 @@ namespace DISPRTT
     {
         Predmet prd;
         int id;
+        public DataTable dt, dt1;
         public Dobavit(Predmet predmet, int id)
         {
             InitializeComponent();
@@ -18,14 +19,30 @@ namespace DISPRTT
                 button2.Visible = false;
             if (prd.Tag.ToString() == "Edit")
             {
+                prd.dataAdapter.SelectCommand = new SqlCommand("GetVidTestirovaniya");
+                prd.dataAdapter.SelectCommand.Connection = Requests.R_sqlConnection;
+                prd.dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dt = new DataTable();
+                prd.dataAdapter.Fill(dt);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    comboBox2.Items.Add(dt.Rows[i][1]);
+                }
+                prd.dataAdapter.SelectCommand = new SqlCommand("GetNastroyky");
+                prd.dataAdapter.SelectCommand.Connection = Requests.R_sqlConnection;
+                prd.dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                dt1 = new DataTable();
+                prd.dataAdapter.Fill(dt1);
+                for (int i = 0; i < dt1.Rows.Count; i++)
+                {
+                    comboBox1.Items.Add(dt1.Rows[i][1]);
+                }
                 button1.Visible = false;
-                comboBox1.Text = prd.dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
                 textBox1.Text = prd.dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
                 textBox2.Text = prd.dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                 textBox3.Text = prd.dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                 textBox4.Text = prd.dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
                 textBox5.Text = prd.dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-                comboBox2.Text = prd.dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
             }
         }
 
@@ -87,18 +104,23 @@ namespace DISPRTT
             }
         }
         string s = "";
-        public void FindId()
+        public int FindId()
         {
-            DataSet myDS = new DataSet();
-            SqlDataAdapter dAdapt = new SqlDataAdapter("Select * from VidTestirovaniya", Requests.R_sqlConnection);
-            dAdapt.Fill(myDS, "VidTestirovaniya");
-                for (int i = 0; i<myDS.Tables["VidTestirovaniya"].Rows.Count; i++)
-                {
-                    if (myDS.Tables["VidTestirovaniya"].Rows[i][1].ToString() == comboBox2.Text)
-                    {
-                      s = myDS.Tables["VidTestirovaniya"].Rows[i][0].ToString();
-                    }
-                }
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                if (dt.Rows[i][1].ToString() == comboBox2.SelectedItem.ToString())
+                    s = dt.Rows[i][0].ToString();
+            }
+            return Convert.ToInt32(s);
+        }
+        public int FindId1()
+        {
+            for (int i = 0; i < dt1.Rows.Count; i++)
+            {
+                if (dt1.Rows[i][1].ToString() == comboBox1.SelectedItem.ToString())
+                    s = dt.Rows[i][0].ToString();
+            }
+            return Convert.ToInt32(s);
         }
         public void Zapolnenie2()
         {
@@ -133,7 +155,6 @@ namespace DISPRTT
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FindId();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -141,6 +162,8 @@ namespace DISPRTT
             try
             {
                 prd.dataAdapter.UpdateCommand = new SqlCommand("UpdatePredmet");
+                prd.dataAdapter.UpdateCommand.Connection = prd.dataAdapter.SelectCommand.Connection;
+                prd.dataAdapter.UpdateCommand.CommandType = CommandType.StoredProcedure;
                 SqlParameter idParam = new SqlParameter
                 {
                     ParameterName = "@id",
@@ -150,13 +173,13 @@ namespace DISPRTT
                 SqlParameter fk = new SqlParameter
                 {
                     ParameterName = "@fk_vt",
-                    Value = comboBox2.Text
+                    Value = FindId()
                 };
                 prd.dataAdapter.UpdateCommand.Parameters.Add(fk);
                 SqlParameter kod = new SqlParameter
                 {
                     ParameterName = "@kod",
-                    Value = textBox1.Text
+                    Value = Convert.ToInt32(textBox1.Text)
                 };
                 prd.dataAdapter.UpdateCommand.Parameters.Add(kod);
                 SqlParameter nazvanie = new SqlParameter
@@ -168,7 +191,7 @@ namespace DISPRTT
                 SqlParameter kodprint = new SqlParameter
                 {
                     ParameterName = "@kodprint",
-                    Value = textBox3.Text
+                    Value = Convert.ToInt32(textBox3.Text)
                 };
                 prd.dataAdapter.UpdateCommand.Parameters.Add(kodprint);
                 SqlParameter name = new SqlParameter
@@ -180,17 +203,16 @@ namespace DISPRTT
                 SqlParameter ball = new SqlParameter
                 {
                     ParameterName = "@minball",
-                    Value = textBox5.Text
+                    Value = Convert.ToInt32(textBox5.Text)
                 };
                 prd.dataAdapter.UpdateCommand.Parameters.Add(ball);
                 SqlParameter prj = new SqlParameter
                 {
                     ParameterName = "@projectfile",
-                    Value = comboBox1.Text
+                    Value = FindId1()
                 };
                 prd.dataAdapter.UpdateCommand.Parameters.Add(prj);
-                prd.dataAdapter.UpdateCommand.Connection = prd.dataAdapter.SelectCommand.Connection;
-                prd.dataAdapter.UpdateCommand.CommandType = CommandType.StoredProcedure;             
+                var y = prd.dataAdapter.UpdateCommand.ExecuteNonQuery();
             }
             catch (SqlException)
             {
