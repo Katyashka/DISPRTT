@@ -44,7 +44,7 @@ namespace DISPRTT
                 case 0:
                     try
                     {
-                        //Добавление новой позиции в бд настройки
+                        //Добавление новой записи в бд настройки
                         if (!System.IO.Directory.Exists(textBox1.Text))
                             throw new System.IO.FileNotFoundException();
                         form.dataAdapter.InsertCommand = new SqlCommand("AddNastroyky");

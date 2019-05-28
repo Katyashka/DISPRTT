@@ -16,6 +16,7 @@ namespace DISPRTT
             InitializeComponent();
             подключитьсяКСерверуToolStripMenuItem.ToolTipText = "Подключение к серверу";
             предметыToolStripMenuItem.ToolTipText = "Предметы тестирования";
+            справочникиToolStripMenuItem.ToolTipText = "Вспомогательные таблицы";
         }
 
         private void OpenDirectory_Click(object sender, EventArgs e)
@@ -43,7 +44,11 @@ namespace DISPRTT
             if (Requests.R_sqlConnection == null)
                 подключитьсяКСерверуToolStripMenuItem.Image = ((System.Drawing.Image)(Properties.Resources.delete_database));
             else
+            {
                 подключитьсяКСерверуToolStripMenuItem.Image = ((System.Drawing.Image)(Properties.Resources.database_check));
+                предметыToolStripMenuItem.Enabled = true;
+                справочникиToolStripMenuItem.Enabled = true;
+            }
         }
 
         private void ShowSubjects(object sender, EventArgs e)

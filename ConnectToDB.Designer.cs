@@ -126,7 +126,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ConnectToDB";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ConnectToDB";
+            this.Text = "Соединение с базой данных";
             this.ResumeLayout(false);
             this.PerformLayout();
 
