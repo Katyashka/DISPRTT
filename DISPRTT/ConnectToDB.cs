@@ -14,8 +14,9 @@ namespace DISPRTT
         public ConnectToDB()
         {
             InitializeComponent();
+            
         }
-
+        
         private void ConnectToServer(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(serverName.Text))
