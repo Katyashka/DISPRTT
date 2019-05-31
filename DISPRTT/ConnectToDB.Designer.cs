@@ -132,7 +132,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ConnectToDB";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ConnectToDB";
+            this.Text = "Соединение с базой данных";
             this.ResumeLayout(false);
             this.PerformLayout();
 

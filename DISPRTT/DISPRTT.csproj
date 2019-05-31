@@ -58,12 +58,6 @@
     <Compile Include="ConnectToDB.Designer.cs">
       <DependentUpon>ConnectToDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeleteItems.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeleteItems.Designer.cs">
-      <DependentUpon>DeleteItems.cs</DependentUpon>
-    </Compile>
     <Compile Include="Dobavit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,9 +101,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConnectToDB.resx">
       <DependentUpon>ConnectToDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeleteItems.resx">
-      <DependentUpon>DeleteItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dobavit.resx">
       <DependentUpon>Dobavit.cs</DependentUpon>

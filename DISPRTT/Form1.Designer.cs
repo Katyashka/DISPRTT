@@ -61,6 +61,7 @@
             // 
             // предметыToolStripMenuItem
             // 
+            this.предметыToolStripMenuItem.Enabled = false;
             this.предметыToolStripMenuItem.Image = global::DISPRTT.Properties.Resources.book_bookmark_1;
             this.предметыToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
             this.предметыToolStripMenuItem.Name = "предметыToolStripMenuItem";
@@ -69,6 +70,7 @@
             // 
             // справочникиToolStripMenuItem
             // 
+            this.справочникиToolStripMenuItem.Enabled = false;
             this.справочникиToolStripMenuItem.Image = global::DISPRTT.Properties.Resources.paper_clip_2;
             this.справочникиToolStripMenuItem.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
