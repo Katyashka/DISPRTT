@@ -188,6 +188,11 @@ namespace DISPRTT
                 MessageBox.Show("Возможно вы не правильно выбрали БД для подключения");
             }
         }
+
+        private void Cancel_Click(object sender, System.EventArgs e)
+        {
+
+        }
         //1111111111222222222233333333334444444444555555555566666666667777777777888888888899999999990000000000
     }
 }

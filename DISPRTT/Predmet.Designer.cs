@@ -32,9 +32,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.разбаловкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.разбаловкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -42,6 +42,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.добавитьToolStripMenuItem,
@@ -49,7 +50,7 @@
             this.разбаловкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(509, 32);
+            this.menuStrip1.Size = new System.Drawing.Size(608, 32);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -67,6 +68,13 @@
             this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(36, 28);
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
+            // разбаловкаToolStripMenuItem
+            // 
+            this.разбаловкаToolStripMenuItem.Image = global::DISPRTT.Properties.Resources._1;
+            this.разбаловкаToolStripMenuItem.Name = "разбаловкаToolStripMenuItem";
+            this.разбаловкаToolStripMenuItem.Size = new System.Drawing.Size(36, 28);
+            this.разбаловкаToolStripMenuItem.Click += new System.EventHandler(this.разбаловкаToolStripMenuItem_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -80,21 +88,14 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(509, 231);
+            this.dataGridView1.Size = new System.Drawing.Size(608, 231);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // разбаловкаToolStripMenuItem
-            // 
-            this.разбаловкаToolStripMenuItem.Image = global::DISPRTT.Properties.Resources._1;
-            this.разбаловкаToolStripMenuItem.Name = "разбаловкаToolStripMenuItem";
-            this.разбаловкаToolStripMenuItem.Size = new System.Drawing.Size(36, 28);
-            this.разбаловкаToolStripMenuItem.Click += new System.EventHandler(this.разбаловкаToolStripMenuItem_Click);
             // 
             // Predmet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 263);
+            this.ClientSize = new System.Drawing.Size(608, 263);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
