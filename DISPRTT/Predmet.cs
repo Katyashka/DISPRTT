@@ -28,7 +28,7 @@ namespace DISPRTT
         {
             try
             {
-                dataAdapter = new SqlDataAdapter("GetPredmet", Requests.R_sqlConnection);
+                dataAdapter = new SqlDataAdapter("GetSubject", Requests.R_sqlConnection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 ds = new DataSet();
                 dataAdapter.Fill(ds);

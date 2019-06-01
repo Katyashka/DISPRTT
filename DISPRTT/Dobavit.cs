@@ -125,25 +125,25 @@ namespace DISPRTT
         public void Zapolnenie2()
         {
             DataSet myDS = new DataSet();
-            SqlDataAdapter dAdapt = new SqlDataAdapter("Select * from VidTestirovaniya", Requests.R_sqlConnection);
-            dAdapt.Fill(myDS, "VidTestirovaniya");
+            SqlDataAdapter dAdapt = new SqlDataAdapter("Select * from Type_of_Test", Requests.R_sqlConnection);
+            dAdapt.Fill(myDS, "Type_of_Test");
             comboBox2.Items.Clear();
             int i = 0;
-            for (i = 0; i < myDS.Tables["VidTestirovaniya"].Rows.Count; i++)
+            for (i = 0; i < myDS.Tables["Type_of_Test"].Rows.Count; i++)
             {
-                comboBox2.Items.Add(myDS.Tables["VidTestirovaniya"].Rows[i][1].ToString());
+                comboBox2.Items.Add(myDS.Tables["Type_of_Test"].Rows[i][1].ToString());
             }
         }
         public void Zapolnenie1()
         {
             DataSet myDS = new DataSet();
-            SqlDataAdapter dAdapt = new SqlDataAdapter("Select * from Nastroyky", Requests.R_sqlConnection);
-            dAdapt.Fill(myDS, "Nastroyky");
+            SqlDataAdapter dAdapt = new SqlDataAdapter("Select * from FilePath", Requests.R_sqlConnection);
+            dAdapt.Fill(myDS, "FilePath");
             comboBox1.Items.Clear();
             int i = 0;
-            for (i = 0; i < myDS.Tables["Nastroyky"].Rows.Count; i++)
+            for (i = 0; i < myDS.Tables["FilePath"].Rows.Count; i++)
             {
-                comboBox1.Items.Add(myDS.Tables["Nastroyky"].Rows[i][1].ToString());
+                comboBox1.Items.Add(myDS.Tables["FilePath"].Rows[i][1].ToString());
             }
         }
 
