@@ -28,7 +28,7 @@ namespace DISPRTT
         {
             try
             {
-                dataAdapter = new SqlDataAdapter("GetNastroyky", Requests.R_sqlConnection);
+                dataAdapter = new SqlDataAdapter("GetFilePath", Requests.R_sqlConnection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 ds = new DataSet();
                 dataAdapter.Fill(ds);
@@ -47,7 +47,7 @@ namespace DISPRTT
         {
             try
             {
-                dataAdapter = new SqlDataAdapter("GetVidTestirovaniya", Requests.R_sqlConnection);
+                dataAdapter = new SqlDataAdapter("GetType_of_Test", Requests.R_sqlConnection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 ds = new DataSet();
                 dataAdapter.Fill(ds);
@@ -65,7 +65,7 @@ namespace DISPRTT
         {
             try
             {
-                dataAdapter = new SqlDataAdapter("GetVidChasti", Requests.R_sqlConnection);
+                dataAdapter = new SqlDataAdapter("GetTypePart_of_Test", Requests.R_sqlConnection);
                 dataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
                 ds = new DataSet();
                 dataAdapter.Fill(ds);
