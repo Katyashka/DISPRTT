@@ -22,9 +22,9 @@ namespace DISPRTT
             this.Tag = "Add";
             dob = new Dobavit(this, -1);
             dob.ShowDialog();
-            GetPredmet();
+            GetSubject();
         }
-        private void GetPredmet()
+        private void GetSubject()
         {
             try
             {
@@ -35,6 +35,13 @@ namespace DISPRTT
                 dataGridView1.DataSource = ds.Tables[0];
                 dataGridView1.RowHeadersVisible = false;
                 dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].HeaderText = "Вид тестирования";
+                dataGridView1.Columns[2].HeaderText = "Путь к файлам";
+                dataGridView1.Columns[3].HeaderText = "Код предмета";
+                dataGridView1.Columns[4].HeaderText = "Название предмета";
+                dataGridView1.Columns[5].HeaderText = "Код предмета для печати";
+                dataGridView1.Columns[6].HeaderText = "Название предмета для печати";
+                dataGridView1.Columns[7].HeaderText = "Минимальный балл";
             }
             catch (SqlException)
             {
@@ -44,7 +51,7 @@ namespace DISPRTT
         
         private void Predmet_Load(object sender, EventArgs e)
         {
-            GetPredmet();
+            GetSubject();
         }
 
         private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -52,7 +59,7 @@ namespace DISPRTT
             this.Tag = "Edit";
             Dobavit change = new Dobavit(this, int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()));
             change.ShowDialog();
-            GetPredmet();            
+            GetSubject();
         }
 
         private void разбаловкаToolStripMenuItem_Click(object sender, EventArgs e)
